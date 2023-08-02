@@ -1,0 +1,21 @@
+/*:root {
+    --card-color: #FFF;
+    --background: #F2F3F5;
+    --gray-line: #DCDDE0;
+    --text: #666666;
+    --text-highlight: #B3B9FF;
+    --title: #2E384D;
+    --red: #E83F5B;
+    --green: #4CD62B;
+    --green-positive: #61b875;
+    --blue: #5965E0;
+    --blue-dark: #4953B8;
+    --blue-twitter: #2AA9E0;
+}*/
+
+
+body {
+    font: 400 1rem 'Inter', sans-serif;
+    background: var(--background);
+    text: var(--text)
+}

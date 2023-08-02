@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>LoL Live Esports</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1 align="center">Jogos Ao Vivo</h1>
+        <nav className="navbar-container">
+            <div className="navbar-logo-container">
+                <Link className="navbar-logo" to="../../assets/images/league-of-legends.svg">
+                    <LoLLogoSVG className="navbar-icon-img"/>
+                    <h2 className="navbar-icon">Live Esports</h2>
+                </Link>
+            </div>
+        </nav>
+    <table>
+      <thead>
+            <tr>
+              {% for key in data %}
+                    <thi>{{ key }}</th>
+                {% endfor %}
+            </tr>
+      </thead>
+        <tbody>
+            <tr>
+               <td>{{ live }}</td>         
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
