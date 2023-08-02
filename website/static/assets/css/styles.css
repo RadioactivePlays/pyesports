@@ -1,11 +1,11 @@
- main .listinha{ 
+ /*main .listinha{ 
      display: flex; 
      flex-wrap: wrap; 
      gap: 30px; 
      justify-content: center; 
  }
-
- main .cartao-pokemon{ 
+*/
+ main .listinha{ 
      background-color: white; 
      width: 200px; 
      padding: 15px; 
@@ -17,6 +17,6 @@
      transition: 0.2s ease-in-out; 
  }
 
- main .cartao-pokemon:hover{ 
+ main .listinha:hover{ 
      background-color: #96d9d6; 
  }
