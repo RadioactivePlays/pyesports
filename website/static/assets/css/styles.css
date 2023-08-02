@@ -1,0 +1,10 @@
+ main .listinha{ 
+     display: flex; 
+     flex-wrap: wrap; 
+     gap: 30px; 
+     justify-content: center; 
+ }
+
+ main .listinha:hover{ 
+     background-color: #96d9d6; 
+ }
