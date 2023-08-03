@@ -9,6 +9,11 @@
    font: 400 1rem 'Inter', sans-serif;
  }
 
+ container {
+     display: flex;
+     justify-content: center;
+  }
+
  main .listinha{ 
      background-color: white; 
      width: 25rem; 
