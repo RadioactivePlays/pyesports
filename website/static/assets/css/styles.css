@@ -5,6 +5,10 @@
      justify-content: center; 
  }
 */
+ body {
+   font: 400 1rem 'Inter', sans-serif;
+ }
+
  main .listinha{ 
      background-color: white; 
      width: 200px; 
