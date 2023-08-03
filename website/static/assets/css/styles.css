@@ -1,15 +1,8 @@
- /*main .listinha{ 
-     display: flex; 
-     flex-wrap: wrap; 
-     gap: 30px; 
-     justify-content: center; 
- }
-*/
- body {
-   font: 400 1rem 'Inter', sans-serif;
+body {
+    font: 400 1rem 'Inter', sans-serif;
  }
 
- main .container {
+main .container {
     min-height: 85vh;
     max-width: 1080px;
     margin: 0 auto;
@@ -19,19 +12,22 @@
     position: relative;
   }
 
- main .listinha{ 
-     background-color: white; 
-     width: 25rem; 
-     padding: 0.5rem; 
-     display: flex; 
-     flex-direction: column; 
-     text-align: center; 
-     /*gap: 15px;*/  
-     border-radius: 15px; 
-     transition: transform 0.3s ease; 
+main .listinha{ 
+    background-color: white; 
+    width: 25rem;
+    padding: 0.5rem; 
+    display: flex; 
+    flex-direction: column; 
+    text-align: center;  
+    border-radius: 15px; 
+    transition: transform 0.3s ease; 
  }
 
- main .listinha:hover{
-     transform: scale(1.2);
-     background-color: #96d9d6; 
+main .listinha:hover{
+    transform: scale(1.2);
+    background-color: #96d9d6; 
+ }
+
+ main {
+    padding: 25px
  }
