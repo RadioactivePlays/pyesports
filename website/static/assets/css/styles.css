@@ -9,9 +9,14 @@
    font: 400 1rem 'Inter', sans-serif;
  }
 
- container {
-     display: flex;
-     justify-content: center;
+ main .container {
+    min-height: 85vh;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
   }
 
  main .listinha{ 
