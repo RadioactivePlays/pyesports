@@ -11,7 +11,7 @@ API_KEY = "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"
 
 def get_live_games():
     return requests.get(f"{API_URL_PERSISTED}/getLive?hl=pt-BR", 
-                        headers = {
+  headers = {
                         "x-api-key": API_KEY,
                         })
 
@@ -70,3 +70,9 @@ print(type(resultado))
 response = get_live_window_game("110418013824164864", str("2023-07-31T16:00:00Z")).json()
 #response = get_live_games().json()
 #pprint(date)
+
+def print_game(game):
+    print(f"{game['gameId']}: {game['league']['name']} - {game['blockName']} - {game['match']['teams'][0]['name']} vs {game['match']['teams'][1]['name']}")
+
+def print_team(team):
+    print(f"{team['name']} ({team['code']}) - {team['players'][0]['summonerName']}, {team['players'][1]['summonerName']}, {team['players'][2]['summonerName']}, {team['players'][3]['summonerName']}, {team['players'][4]['summonerName']}")

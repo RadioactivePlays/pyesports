@@ -10,40 +10,20 @@
     <link rel="icon" type="image/x-icon" href="../static/assets/images/league-of-legends.svg">
 </head>
 <body>
-  <h1 align="center">Jogos Ao Vivo</h1>
-        <nav className="navbar-container">
-            <div className="navbar-logo-container">
-                <Link className="navbar-logo" to="../../assets/images/league-of-legends.svg">
-                    <LoLLogoSVG className="navbar-icon-img"/>
-  <h2 className="navbar-icon">Live Esports</h2>
-                </Link>
-            </div>
-        </nav>
-    <table>
-      <thead>
-            <tr>
-              {% for key in data %}
-                    <<th>{{ key }}</th>
-                {% endfor %}
-            </tr>
-      </thead>
-        <tbody>
-            <tr>
-               <td>{{ live }}</td>         
-            </tr>
-        </tbody>
-    </table>
+  <h1 align="center">JOGOS AO VIVO</h1>
+  {% if nogames == True %}
+  <center><h2>NENHUM JOGO AO VIVO</h2></center>
+  {% else %}
     <header>
       <main class="container">
         <ul class="listinha">
           <li class="cartao-pokemon"</li>
-  <li>primeiro item</li>
-  <li>segundo item</li>
-  <li>terceiro item</li>
+          <li>{{timea}} vs {{timeb}}</li>
 
         </ul>
         
       </main>
     </header>
+  {% endif %}
 </body>
 </html>
