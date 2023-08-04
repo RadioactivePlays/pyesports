@@ -16,12 +16,12 @@
   <h1 align="center">JOGOS AO VIVO</h1>
   {% if nogames %}
     <center><h2>NENHUM JOGO AO VIVO</h2></center>
-      {% else %}
-        {% for event in events %}
+  {% else %}
+  {% for event in events %}
           <div class="card">
             <h3> {{ event['match']['teams'][0]['code'] }}<br> VS <br>{{ event['match']['teams'][1]['code'] }}</h3><br>
              <div class="row">
-             <div class="column">
+              <div class="column">
                <img src="{{ event['match']['teams'][0]['image'] }}" alt="Logo da Equipe A" class="teamicon" width="100" height="100">
              </div>
              <div class="column">
