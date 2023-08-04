@@ -29,8 +29,9 @@ def home():
     if len(events) >= 1:
         time_a = events[0]['match']['teams'][0]['name']
         time_b = events[0]['match']['teams'][1]['name']
+        return render_template('table.html', time_a=time_a, time_b=time_b, events=events)
 
     else:
         time_a = None
         time_b = None
-    return render_template('table.html', data=live_games_data, timea=time_a, timeb=time_b)
+#    return render_template('table.html', events=events, timea=time_a, timeb=time_b)

@@ -12,18 +12,20 @@
 <body>
   <h1 align="center">JOGOS AO VIVO</h1>
   {% if nogames == True %}
-  <center><h2>NENHUM JOGO AO VIVO</h2></center>
-  {% else %}
-    <header>
-      <main class="container">
-        <ul class="listinha">
-          <li class="cartao-pokemon"</li>
-          <li>{{timea}} vs {{timeb}}</li>
+    <center><h2>NENHUM JOGO AO VIVO</h2></center>
+      {% else %}
+        {% for event in events %}
+          <div class="card">
+            <h1>Equipes:</h1>
+        <strong>Nome da Equipe: {{ event['match']['teams'][0]['name'] }}</strong>
+        <img src="{{ event['match']['teams'][0]['image'] }}" alt="Logo da Equipe A" width="100" height="100">
+        <br>
+        <strong>Nome da Equipe: {{ event['match']['teams'][1]['name'] }}</strong>
+        <img src="{{ event['match']['teams'][1]['image'] }}" alt="Logo da Equipe B" width="100" height="100">
 
-        </ul>
-        
-      </main>
-    </header>
-  {% endif %}
+        <br>
+     </div>
+    {% endfor %}
+    {% endif %}
 </body>
 </html>
