@@ -1,17 +1,19 @@
 body {
     font: 400 1rem 'Inter', sans-serif;
+    background-color: #121212;
  }
 
 h1{
    padding-top: 50px;
+   color: white;
  }
 
   .card{ 
     min-height: 10vh;
-    max-width: 500px;
+    min-width: 80vw;
     margin: 0 auto;
     padding: 2.5rem 2 rem;
-    background-color: white; 
+    background-color: #96d9d6;
     width: 25rem;
     padding: 0.5rem; 
     display: flex; 
@@ -25,10 +27,10 @@ h1{
   }
 
  .card:hover{
-    transform: scale(1.2);
-    background-color: #96d9d6; 
+    transform: scale(1.1);
+    background-color: white;
  }
-
+ 
  .teamicon {
    margin-left: auto;
    margin-right: auto;
@@ -37,7 +39,30 @@ h1{
  .navbar-container {
     display: flex;
     justify-content: center;
+    border-bottom-style: solid;
+    border-width: 2px;
+    border-color: grey;
   }
 .navbar-container::before, .navbar-logo-container, .toggle-container {
     content: '';
   }
+
+.navbar-icon {
+  filter: invert(100%);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.column {
+  flex: %;
+  padding: 5px;
+  box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.4);
+  width: 100px;
+  height: 100px;
+  background-color: #121212;
+  border-radius: 10px;
+}
