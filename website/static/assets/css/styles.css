@@ -13,6 +13,10 @@ main .container {
   }
 
   .card{ 
+    min-height: 85vh;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 2.5rem 2 rem;
     background-color: white; 
     width: 25rem;
     padding: 0.5rem; 
@@ -20,7 +24,13 @@ main .container {
     flex-direction: column; 
     text-align: center;  
     border-radius: 15px; 
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
+    margin-bottom: 30px;
+    box-shadow: 0px -25px 20px -20px rgba(0,0,0,0.45),
+    25px 0px 20px -20px rgba(0,0,0,0.45),
+    0px 25px 20px -20px rgba(0,0,0,0.45),
+    -25px 0px 20px -20px rgba(0,0,0,0.45);
+    /*2px 2px 2px rgba(0, 0, 0, 0.2);*/
  }
 
 /* .card {
