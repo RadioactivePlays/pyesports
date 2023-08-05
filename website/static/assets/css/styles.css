@@ -1,6 +1,6 @@
 body {
     font: 400 1rem 'Inter', sans-serif;
-    background-color: #121212;
+    background-color: #2A2E35;
  }
 
 h1{
@@ -43,7 +43,7 @@ h1{
     border-width: 2px;
     border-color: grey;
   }
-.navbar-container::before, .navbar-logo-container, .toggle-container {
+.navbar-container::before {
     content: '';
   }
 
@@ -58,11 +58,27 @@ h1{
 }
 
 .column {
-  flex: %;
+  flex: 33,3%;
   padding: 5px;
   box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.4);
   width: 100px;
   height: 100px;
   background-color: #121212;
   border-radius: 10px;
+}
+
+.versus {
+  margin: auto 0 auto 0;
+  font-size: 2.5rem;
+  /*padding: 10px;*/
+}
+
+.codes {
+  flex: 50%;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  position: relative;
+  left: -100px;
 }
