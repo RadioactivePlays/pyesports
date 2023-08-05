@@ -74,11 +74,8 @@ h1{
 }
 
 .codes {
-  flex: 50%;
-  flex-direction: row;
   display: flex;
-  justify-content: space-between;
-  width: 50%;
-  position: relative;
-  left: -100px;
+  flex: 20%;
+  flex-direction: row;  
+  justify-content: space-evenly;    
 }

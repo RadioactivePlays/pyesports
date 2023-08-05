@@ -11,15 +11,4 @@ def home():
     if events == []:
         return render_template('table.html', nogames=True)
     else:
-        return render_template('table.html', events=events)
-
-#    if len(events) >= 1:
-#         return render_template('table.html', nogames=True)
-
-#    if len(events) >= 1:
-#    else:
-#        return render_template('table.html', events=events)
-#
-#    else:
-#        return render_template('table.html', nogames=True)
-
+        return render_template('table.html', events=events, nogames= False)
