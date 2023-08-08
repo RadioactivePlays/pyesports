@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <title>LoL Live Esports</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../static/assets/css/styles.css">
     <link rel="icon" type="image/x-icon" href="../static/assets/images/league-of-legends.svg">
     <script>
-    function redirectToGame(gameId, startTime) {
+    function redirectToGame(gameId) {
       window.location.href = '/game_details?game_id=' + gameId;
     }
   </script>
@@ -19,11 +19,12 @@
   <img class="navbar-icon" src="../static/assets/images/league-of-legends.svg" width="50" height="50">
 </nav>
 <body>
+  <a href="/schedule">JOGOS RECENTES</a>
   <h1 align="center">JOGOS AO VIVO</h1>
   <div class="container">
   {% if nogames %}
-    <center><h2>NENHUM JOGO AO VIVO</h2></center>
-    <div class="container">
+   <p class="nomatches">NENHUM JOGO AO VIVO</p>
+   <img class="eoq" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/loadouts/summoneremotes/champions/blitzcrank/blitzcrank_sad_confused_inventory.png" alt="éoq?"/>
    {% else %}
     {% for event in events %}
      {% if 'match' in event %}
