@@ -1,6 +1,4 @@
 import requests
-import json
-import pytz
 from datetime import datetime
 
 date = datetime.now()
