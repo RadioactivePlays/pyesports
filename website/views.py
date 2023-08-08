@@ -6,7 +6,7 @@ views = Blueprint('views', __name__)
 
 current_time = datetime.now().strftime('%Y-%m-%d')
 
-@views.route("/home")
+@views.route("/")
 def live():
     live_games_response = get_live_games()
     live_games_data = json.loads(live_games_response.text)
@@ -20,9 +20,9 @@ def live():
 def schedule():
     schedule_response = get_schedule()
     schedule_data = json.loads(schedule_response.text)
-    eventio = schedule_data['data']['schedule']['events']
+    agenda = schedule_data['data']['schedule']['events']
     
-    events = [event for event in eventio if remove_seconds(event.get('startTime'))[:10] == current_time]
+    events = [event for event in agenda if remove_seconds(event.get('startTime'))[:10] == current_time]
 
     if not events:
         return render_template('schedule.html', nogames=True)
