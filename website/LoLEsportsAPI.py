@@ -1,6 +1,7 @@
 import requests
-from pprint import pprint
-from datetime import datetime, timedelta
+import json
+import pytz
+from datetime import datetime
 
 date = datetime.now()
 
@@ -9,19 +10,24 @@ API_URL_LIVE = "https://feed.lolesports.com/livestats/v1"
 API_KEY = "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"
 
 
+'''Função para obter partidas ao vivo'''
 def get_live_games():
     return requests.get(f"{API_URL_PERSISTED}/getLive?hl=pt-BR", 
   headers = {
                         "x-api-key": API_KEY,
                         })
 
+
+'''Função para obter a agenda de partidas, precisa filtrar pela data atual'''
 def get_schedule():
     return requests.get(f"{API_URL_PERSISTED}/getSchedule?hl=pt-BR",
                         headers = {
                         "x-api-key": API_KEY,
-                            })
+                        })
 
-def get_live_window_game(gameId:dict, date:dict):
+
+
+def get_live_window_game(gameId, date):
     return requests.get(f"{API_URL_LIVE}/window/{gameId}",
                         params = {
                         "hl": "pt-BR",
@@ -33,8 +39,10 @@ def get_live_window_game(gameId:dict, date:dict):
                         }
                         )
 
-def get_live_datails_game(gameId:dict, date:dict):
-    return requests.get(f"{API_URL_PERSISTED}/details/window/{gameId}",
+
+
+def get_live_details_game(gameId, date):
+    return requests.get(f"{API_URL_LIVE}/details/{gameId}",
                         params = {
                         "hl": "pt_BR",
                         "startingTime": date,
@@ -43,36 +51,22 @@ def get_live_datails_game(gameId:dict, date:dict):
                         "x-api-key": API_KEY,
                         })
 
-def get_game_details(gameId:str):
+
+
+def get_game_details(gameId):
     return requests.get(f"{API_URL_PERSISTED}/getEventDetails",
                         params = {
                         "hl": "pt-BR",
-                        "id": "gameId",
+                        "id": gameId,
                         },
                         headers = {
                         "x-api-key": API_KEY,
                         })
 
-def get_iso_date_multiply_of_10():
-    date = datetime.now().replace(microsecond=0)
-    if date.second % 10 != 0:
-        date = date.replace(second=date.second - (date.second % 10))
-  
-    date = date - timedelta(seconds=60)
-  
-    return date.isoformat()
-resultado = get_iso_date_multiply_of_10()
-print(type(resultado))
 
 
 
+'''Remover os segundos e adiconar Z'''
+def remove_seconds(startTime):
+    return startTime[:-6] + '00Z'
 
-response = get_live_window_game("110418013824164864", str("2023-07-31T16:00:00Z")).json()
-#response = get_live_games().json()
-#pprint(date)
-
-def print_game(game):
-    print(f"{game['gameId']}: {game['league']['name']} - {game['blockName']} - {game['match']['teams'][0]['name']} vs {game['match']['teams'][1]['name']}")
-
-def print_team(team):
-    print(f"{team['name']} ({team['code']}) - {team['players'][0]['summonerName']}, {team['players'][1]['summonerName']}, {team['players'][2]['summonerName']}, {team['players'][3]['summonerName']}, {team['players'][4]['summonerName']}")

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>LoL Live Esports</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/assets/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="../static/assets/images/league-of-legends.svg">
+    <script>
+    function redirectToGame(gameId) {
+      window.location.href = '/game_details?game_id=' + gameId;
+    }
+  </script>
+</head>
+ <nav class="navbar-container">
+  <img class="navbar-icon" src="../static/assets/images/league-of-legends.svg" width="50" height="50">
+</nav>
+<body>
+  <h1 align="center">JOGOS DO DIA</h1>
+  <div class="container">
+  {% if nogames %}
+    <center><h2>NENHUM JOGO AO VIVO</h2></center>
+   {% else %}
+    {% for event in events %}
+     {% if 'match' in event %}
+         <div class="live-game-card" onclick="redirectToGame('{{event['match']['id']}}')">
+            <h3> {{ event['league']['name'] }} </h3>
+            <div class="live-game-card-content">
+              <div class="live-game-card-team">
+                <img class="live-game-card-team-image" src="{{ event['match']['teams'][0]['image'] }}" alt=" {{ event['match']['teams'][0]['name'] }}">
+                <span class="live-game-card-title">
+                  {{ event['match']['teams'][0]['name'] }}
+                  </span>
+                  </div>   
+
+                      <h1>VS</h1>
+
+                      <div class="live-game-card-team">
+                        <img class="live-game-card-team-image" src=" {{ event['match']['teams'][1]['image'] }}" alt="{{ event['match']['teams'][1]['name'] }}">
+                        <span class="live-game-card-title">
+                          {{ event['match']['teams'][1]['name'] }}
+                        </span>
+
+                      </div>
+                      </div>
+                      </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+  </div>
+</body>
+</html>
