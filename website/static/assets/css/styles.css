@@ -8,19 +8,15 @@ h1{
    color: white;
  }
 
-.nomatches {
-  text-align: center;
-  margin: 0 auto;
-  color: white;
-}
-
-.eoq {
+.empty {
   margin: auto auto;
+  text-align: center;
 }
 
  .navbar-container {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    padding: 10px;
     border-bottom-style: solid;
     border-width: 2px;
     border-color: grey;
@@ -28,6 +24,13 @@ h1{
 
 .navbar-icon {
   filter: invert(100%);
+  margin-right: 10px;
+  display: block;
+  margin: auto;
+}
+
+body a{
+  text-decoration: none;
 }
 
 .container {
@@ -91,7 +94,7 @@ h1{
 
 .live-game-card-title {
     font-weight: 500;
-    color: #666666;
+    color: #000;
     display: block;
 
 }
@@ -101,11 +104,6 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.empty-games-galaxy{
-    margin: 5rem;
-    width: 50%;
 }
 
 .games-list-container {
@@ -130,13 +128,6 @@ h1{
     height: 3px;
 }
 
-.games-of-day {
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 @media screen and (min-width: 1080px) and (orientation: landscape) {
   .container {
     display: flex;
@@ -148,8 +139,4 @@ h1{
     width: calc(50% - 1rem);
     margin-bottom: 1rem;
   }
-}
-
-.live-game-card-title, live-game-card-team-image {
-  color: #000; 
 }

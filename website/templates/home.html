@@ -19,12 +19,14 @@
   <img class="navbar-icon" src="../static/assets/images/league-of-legends.svg" width="50" height="50">
 </nav>
 <body>
-  <a href="/schedule">JOGOS RECENTES</a>
   <h1 align="center">JOGOS AO VIVO</h1>
+  <h2 align="center"> <a href="/schedule">JOGOS RECENTES</a> </h2>
   <div class="container">
   {% if nogames %}
+  <div class="empty">
    <p class="nomatches">NENHUM JOGO AO VIVO</p>
    <img class="eoq" src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/loadouts/summoneremotes/champions/blitzcrank/blitzcrank_sad_confused_inventory.png" alt="éoq?"/>
+   </div>
    {% else %}
     {% for event in events %}
      {% if 'match' in event %}
