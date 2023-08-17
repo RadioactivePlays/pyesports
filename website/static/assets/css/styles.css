@@ -92,6 +92,8 @@ h1{
 .live-game-card-title {
     font-weight: 500;
     color: #666666;
+    display: block;
+
 }
 
 .empty-games-list-container{

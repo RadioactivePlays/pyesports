@@ -65,6 +65,6 @@ def get_game_details(gameId):
 
 
 '''Remover os segundos e adiconar Z'''
-def remove_seconds(startTime):
+def remover_segundos(startTime):
     return startTime[:-6] + '00Z'
 

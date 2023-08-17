@@ -1,10 +1,10 @@
 from datetime import datetime
 from flask import Blueprint, json, render_template, request
-from website.LoLEsportsAPI import get_live_games, get_schedule, get_game_details, remove_seconds, remove_seconds
+from website.LoLEsportsAPI import get_live_games, get_schedule, get_game_details, remover_segundos
 
 views = Blueprint('views', __name__)
 
-current_time = datetime.now().strftime('%Y-%m-%d')
+data_atual = datetime.now().strftime('%Y-%m-%d')
 
 @views.route("/")
 def live():
@@ -22,7 +22,7 @@ def schedule():
     schedule_data = json.loads(schedule_response.text)
     agenda = schedule_data['data']['schedule']['events']
     
-    events = [event for event in agenda if remove_seconds(event.get('startTime'))[:10] == current_time]
+    events = [event for event in agenda if remover_segundos(event.get('startTime'))[:10] == data_atual]
 
     if not events:
         return render_template('schedule.html', nogames=True)
