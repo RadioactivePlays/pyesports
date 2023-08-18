@@ -1,17 +1,18 @@
 from datetime import datetime
+import pytz
 from flask import Blueprint, json, render_template, request
 from website.LoLEsportsAPI import get_live_games, get_schedule, get_game_details, remover_segundos
 
 views = Blueprint('views', __name__)
 
-data_atual = datetime.now().strftime('%Y-%m-%d')
+data_atual = datetime.now(pytz.timezone('America/Manaus')).strftime('%Y-%m-%d')
 
 @views.route("/")
 def live():
     live_games_response = get_live_games()
     live_games_data = json.loads(live_games_response.text)
     events = live_games_data['data']['schedule']['events']
-    if events == []:
+    if not events:
         return render_template('home.html', nogames=True)
     else:
         return render_template('home.html', events=events, nogames=False)
