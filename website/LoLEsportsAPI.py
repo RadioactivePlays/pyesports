@@ -1,7 +1,20 @@
 import requests
 from datetime import datetime
+from jinja2 import Environment, FileSystemLoader
+from flask import render_template
 
 date = datetime.now()
+
+
+env = Environment(loader=FileSystemLoader('website/templates/'))
+
+
+ITEMS_URL = "https://ddragon.bangingheads.net/cdn/latest/img/item/"
+CHAMPIONS_URL = "https://ddragon.bangingheads.net/cdn/latest/img/champion/"
+
+#template = env.get_template('game_details.html')
+#output = render_template(CHAMPIONS_URL=CHAMPIONS_URL)
+
 
 API_URL_PERSISTED = "https://esports-api.lolesports.com/persisted/gw"
 API_URL_LIVE = "https://feed.lolesports.com/livestats/v1"
@@ -11,7 +24,7 @@ API_KEY = "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"
 '''Função para obter partidas ao vivo'''
 def get_live_games():
     return requests.get(f"{API_URL_PERSISTED}/getLive?hl=pt-BR", 
-  headers = {
+                        headers = {
                         "x-api-key": API_KEY,
                         })
 
@@ -25,12 +38,10 @@ def get_schedule():
 
 
 
-def get_live_window_game(gameId, date):
+def get_live_window_game(gameId):
     return requests.get(f"{API_URL_LIVE}/window/{gameId}",
                         params = {
                         "hl": "pt-BR",
-                        "startingTime": date,
-                        "gameId": gameId,
                         },
                         headers = {
                         "x-api-key": API_KEY,
@@ -39,11 +50,11 @@ def get_live_window_game(gameId, date):
 
 
 
-def get_live_details_game(gameId, date):
+def get_live_details_game(gameId):
     return requests.get(f"{API_URL_LIVE}/details/{gameId}",
                         params = {
                         "hl": "pt_BR",
-                        "startingTime": date,
+                        #                        "startingTime": date,
                         },
                         headers = {
                         "x-api-key": API_KEY,

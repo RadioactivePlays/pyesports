@@ -1,22 +1,22 @@
 .navbar-container {
-    display: flex;
-    justify-content: center;
-    border-bottom-style: solid;
-    border-width: 2px;
-    border-color: grey;
-  }
+  display: flex;
+  justify-content: center;
+  border-bottom-style: solid;
+  border-width: 2px;
+  border-color: grey;
+}
 .navbar-container::before {
-    content: '';
-  }
+  content: '';
+}
 
 .navbar-icon {
   filter: invert(100%);
 }
 
 body {
-    font: 400 1rem 'Poppins', sans-serif;
-    background-color: #2A2E35;
- }
+  font: 400 1rem 'Poppins', sans-serif;
+  background-color: #2A2E35;
+}
 
 .container {
   box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.4);
@@ -38,16 +38,71 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
-  font-family: sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
-th, td {
-  border: 1px solid black;
-  padding: 10px;
+
+.status-live-game-card-table {
+    width: 100%;
 }
 
-th {
-  background-color: lightblue;
-  color: white;
+.player-champion-info {
+    text-align: left;
+    display: flex;
+    align-items: center;
 }
 
+.player-champion-info-level{
+    position: absolute;
+    transform: translate(-50%, 100%);
+    font-size: 12px;
+}
+
+.player-champion-info-name {
+    margin-left: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.player-card-player-name {
+    font-size: 10px;
+}
+
+.player-champion {
+    width: 32px;
+    border-radius: 50%;
+    background: var(--gray-line);
+}
+
+.player-stats {
+    /*width: 64px;*/
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    font-weight: 400;
+    background: #DCDDE0;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.player-stats-kda {
+    width: 28px;
+}
+
+.table-top-row-champion{
+    width: 12rem;
+}
+
+.table-top-row-vida{
+    height: 28px;
+    width: 15rem;
+}
+
+.table-top-row-items {
+    height: 28px;
+    width: 12rem;
+}
+
+.table-top-row {
+    height: 28px;
+}

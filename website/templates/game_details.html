@@ -1,76 +1,188 @@
+{% set blueTeamMetadata = resposta['gameMetadata']['blueTeamMetadata']['participantMetadata'] %}
+{% set redTeamMetadata = resposta['gameMetadata']['redTeamMetadata']['participantMetadata'] %}
+{% set blueparticipants = resposta['frames'][0]['blueTeam']['participants'][0] %}
+{% set redparticipants = resposta['frames'][0]['redTeam']['participants'][0] %}
+
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>LoL Live Esports</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/assets/css/gamedetails.css">
     <link rel="icon" type="image/x-icon" href="../static/assets/images/league-of-legends.svg">
-</head>
- <nav class="navbar-container">
-  <img class="navbar-icon" src="../static/assets/images/league-of-legends.svg" width="50" height="50">
-</nav>
-<body>
-        {% if 'data' in game_details_data %}
-          {% set event_details = game_details_data['data']['event'] %}
-          {% if 'match' in event_details %}
-          <div class="container">
-            <div class="barra">
-                <img src="{{ event_details['match']['teams'][0]['image'] }}" alt="{{ event_details['match']['teams'][0]['name'] }}" width="50px" height="50px"/>
-                            <h3>{{ event_details['match']['teams'][0]['code'] }}</h3>
-                            <h1>
-                                VS
-                            </h1>
-                            <h3>{{ event_details['match']['teams'][1]['code'] }}</h3>
-                                <img src="{{ event_details['match']['teams'][1]['image'] }}" alt="{{ event_details['match']['teams'][1]['name'] }}" width="50px" height="50px"/>
-                    </div>
-<table>
-  <thead>
-    <tr>
-      <th>Players</th>
-      <th>Items</th>
-      <th>CS</th>
-      <th>KDA</th>
-      <th>Gold</th>
-      <th>+/-</th>
+  </head>
+  <nav class="navbar-container">
+    <img class="navbar-icon" src="../static/assets/images/league-of-legends.svg" width="50" height="50">
+  </nav>
+  <body>
+    {% if 'data' in game_details_data %}
+    {% set event_details = game_details_data['data']['event'] %}
+    {% if 'match' in event_details %}
+    <div class="container">
+      <div class="barra">
+        <img src="{{ event_details['match']['teams'][0]['image'] }}" alt="{{ event_details['match']['teams'][0]['name'] }}" width="50px" height="50px"/>
+        <h3>{{ event_details['match']['teams'][0]['code'] }}</h3>
+        <h1>
+          VS
+        </h1>
+        <h3>{{ event_details['match']['teams'][1]['code'] }}</h3>
+        <img src="{{ event_details['match']['teams'][1]['image'] }}" alt="{{ event_details['match']['teams'][1]['name'] }}" width="50px" height="50px"/>
+      </div>
+      <table class="status-live-game-card-table">
+        <thead>
+          <tr>
+            <th class="table-top-row-champion" title="champion/team">
+              <span>{{event_details['match']['teams'][0]['name']}}</span>
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+            </th>
+            <th class="table-top-row-vida" title="life">
+              <span>VIDA</span>
+            </th>
+            <th class="table-top-row-items" title="items">
+              <span>ITEMS</span>
+            </th>
+            <th class="table-top-row" title="creep score">
+              <span>CS</span>
+            </th>
+            <th class="table-top-row player-stats-kda" title="kills">
+              <span>K</span>
+            </th>
+            <th class="table-top-row player-stats-kda" title="kills">
+              <span>D</span>
+            </th>
+            <th class="table-top-row player-stats-kda" title="kills">
+              <span>A</span>
+            </th>
+            <th class="table-top-row" title="gold">
+              <span>Ouro</span>
+            </th>
+            <th class="table-top-row" title="gold difference">
+              <span>+/-</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for participant in blueTeamMetadata %}
+          <tr>
+            <td>
+              <div class="player-champion-info">
+                <img src="https://ddragon.bangingheads.net/cdn/13.12.1/img/champion/{{participant['championId']}}.png" class="player-champion" alt="imagem do campeao"/>
+                <span class="player-champion-info-level">{{ blueparticipants['level'] }}</span>
+                <div class="player-champion-info-name">
+                  <span>{{ participant['championId'] }}</span>
+                  <span class="player-card-player-name">{{ participant['summonerName'] }}</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="player-stats">{{ blueparticipants['currentHealth'] }} / {{ blueparticipants['maxHealth'] }}</div>
+            </td>
+            <td>
+              <div class="player-stats"> Itens</div>
+            </td>
+            <td>
+              <div class="player-stats">{{ blueparticipants['creepScore'] }}</div>
+            </td>
+            <td>
+              <div class="player-stats player-stats-kda">{{ blueparticipants['kills'] }}</div>
+            </td>
+            <td>
+              <div class="player-stats player-stats-kda">{{ blueparticipants['deaths'] }}</div>
+            </td>
+            <td>
+              <div class="player-stats">{{ blueparticipants['assists'] }}</div>
+            </td>
+            <td>
+              <div class="player-stats">{{ blueparticipants['totalGold']}}</div>
+            </td>
+          </tr> 
+          {% endfor %}
+        </tbody>
+      </table>
 
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
 
-    </tr>
-  </tbody>
-</table>
 
-          </div>
-                {% endif %}
-            {% endif %}
-</body>
+      <!-- TIME VERMELHO-->
+
+      <table class="status-live-game-card-table">
+        <thead>
+          <tr>
+            <th class="table-top-row-champion" title="champion/team">
+              <span>{{event_details['match']['teams'][1]['name']}}</span>
+
+            </th>
+            <th class="table-top-row-vida" title="life">
+              <span>VIDA</span>
+            </th>
+            <th class="table-top-row-items" title="items">
+              <span>ITEMS</span>
+            </th>
+            <th class="table-top-row" title="creep score">
+              <span>CS</span>
+            </th>
+            <th class="table-top-row player-stats-kda" title="kills">
+              <span>K</span>
+            </th>
+            <th class="table-top-row player-stats-kda" title="kills">
+              <span>D</span>
+            </th>
+            <th class="table-top-row player-stats-kda" title="kills">
+              <span>A</span>
+            </th>
+            <th class="table-top-row" title="gold">
+              <span>Ouro</span>
+            </th>
+            <th class="table-top-row" title="gold difference">
+              <span>+/-</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for participant in redTeamMetadata %}
+          <tr>
+            <td>
+              <div class="player-champion-info">
+                <img src="https://ddragon.bangingheads.net/cdn/13.12.1/img/champion/{{participant['championId']}}.png" class="player-champion" alt="imagem do campeao"/>
+                <span class="player-champion-info-level">{{ redparticipants['level'] }}</span>
+                <div class="player-champion-info-name">
+                  <span>{{ participant['championId'] }}</span>
+                  <span class="player-card-player-name">{{ participant['summonerName'] }}</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="player-stats">{{ redparticipants['currentHealth'] }} / {{ redparticipants['maxHealth'] }}</div>
+            </td>
+            <td>
+              <div class="player-stats"> Itens</div>
+            </td>
+            <td>
+              <div class="player-stats">{{ redparticipants['creepScore'] }}</div>
+            </td>
+            <td>
+              <div class="player-stats player-stats-kda">{{ redparticipants['kills'] }}</div>
+            </td>
+            <td>
+              <div class="player-stats player-stats-kda">{{ redparticipants['deaths'] }}</div>
+            </td>
+            <td>
+              <div class="player-stats">{{ redparticipants['assists'] }}</div>
+            </td>
+            <td>
+              <div class="player-stats">{{ redparticipants['totalGold']}}</div>
+            </td>
+          </tr> 
+          {% endfor %}
+        </tbody>
+      </table>
+
+
+    </div>
+    {% endif %}
+    {% endif %}
+  </body>
 </html>

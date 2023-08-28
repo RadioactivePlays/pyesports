@@ -11,6 +11,8 @@ h1{
 .empty {
   margin: auto auto;
   text-align: center;
+  border: 2px solid white;
+  border-radius: 5px;
 }
 
  .navbar-container {
